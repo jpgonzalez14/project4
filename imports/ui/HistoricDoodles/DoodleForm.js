@@ -21,6 +21,9 @@ class DoodleForm extends React.Component {
     let title = this.refs.title.value.trim();
     let date = this.refs.date.value.trim();
     let tipo = this.refs.tipo.value.trim();
+    
+    //Andrés Felipe López: Si se envía el formulario con algún campo vacío, no hay feedback para el usuario, solo no pasa nada.
+    //Deberían mostrar un mensaje avisando lo que pasa y mostrando lo que falta por llenar en caso de que no entre al if.
     if (parrafo && title && date) {
       Meteor.call('doodles.insert', title, parrafo, date, tipo, (err, res) => {
         if (err)
@@ -32,7 +35,8 @@ class DoodleForm extends React.Component {
       this.refs.title.value = '';
       this.refs.date.value = '';
       this.refs.tipo.value = '';
-    }
+    } else {
+      alert('Debes llenar el título, el contenido y la fecha!');
 
   }
   render() {
