@@ -14,6 +14,7 @@ class Signup extends React.Component{
       error: ''
     };
   }
+  //Zulma Castañeda: Procuren evitar el uso de imagenes tan pesadas pues hace que la pagina cargue mucho mas lento, busquen la calidad y el tamaño correcto para su app 
   componentDidMount(){
     const totalCount = 10;
     var num = Math.ceil( Math.random() * totalCount );
