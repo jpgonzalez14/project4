@@ -68,15 +68,11 @@ class DoodleList extends React.Component {
         </div>
         <div className="container">
           <div className="row">
-            <div className="card-deck">
               {this.renderDoodlesListUniandes()}
-            </div>
           </div>
           <br />
           <div className="row">
-            <div className="card-deck">
             {this.renderDoodlesListComunidad()}
-            </div>
           </div>
           </div>
         </div>

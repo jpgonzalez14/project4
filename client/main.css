@@ -56,7 +56,11 @@ p {
   text-align: justify;
 }
 .hitbox{
-  width: 17rem;
+  width: 16rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .combox{
   width: 17rem;

@@ -73,9 +73,7 @@ class DoodleListUser extends React.Component {
                     <br />
                     <div className="container testh">
                         <div className="row">
-                            <div className="card-deck">
                                 {this.renderDoodlesList()}
-                            </div>
                         </div>
                         <br />
                     </div>
