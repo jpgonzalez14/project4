@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
 html, body {
   height: 100%;
   margin: 0;
@@ -31,12 +32,17 @@ html, body {
 }
 .title{
   color: #160D24;
+  font-family: 'Roboto', sans-serif;
 }
 p.subtitles{
   color: #DF2C6B;
 }
 .subtitles{
   color: #F7B733;
+  font-family: 'Open Sans', sans-serif;
+}
+h1{
+  font-family: 'Roboto', sans-serif;
 }
 .rostext{
   color: #DF2C6B;
@@ -57,6 +63,8 @@ button.btn.coll.focus {
 }
 p {
   text-align: justify;
+  font-family: 'Open Sans', sans-serif;
+
 }
 .hitbox{
   width: 16rem;

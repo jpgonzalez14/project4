@@ -50,9 +50,9 @@ class DoodleBox extends React.Component {
               <small className="rostext">
                 {this.parseDate(this.props.date)}
               </small>
-              <a href="#" className="badge badge-warning float-right">
+              <span className="badge badge-warning float-right">
                 {this.props.type}
-              </a>
+              </span>
             </h6>
             <Link to={{pathname: '/doodle',state: { value: this.props }}}><h5 className="card-title title">{this.props.title}</h5></Link>
             <div className='float-right'>
@@ -74,9 +74,9 @@ class DoodleBox extends React.Component {
               <small className="rostext">
                 {this.parseDate(this.props.date)}
               </small>
-              <a href="#" className="badge morado float-right">
+              <span className="badge morado float-right">
                 {this.props.type}
-              </a>
+              </span>
             </h6>
             <Link to={{pathname: '/doodle',state: { value: this.props }}}><h5 className="card-title title">{this.props.title}</h5></Link>
             <div className='float-right'>

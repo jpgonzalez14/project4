@@ -67,10 +67,20 @@ class DoodleList extends React.Component {
             </p>
         </div>
         <div className="container">
+        <br/>
+        <h1>
+        Hitos <span className="badge badge-warning">Uniandes</span>
+        </h1>
+        <hr/>
           <div className="row">
               {this.renderDoodlesListUniandes()}
           </div>
-          <br />
+          <br/>
+          <br/>
+          <h1>
+          Hitos <span className="badge morado">Comunidad</span>
+          </h1>
+          <hr/>
           <div className="row">
             {this.renderDoodlesListComunidad()}
           </div>
