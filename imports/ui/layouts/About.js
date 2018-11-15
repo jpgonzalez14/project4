@@ -17,11 +17,12 @@ class About extends React.Component{
       <br/>
       <div className="container testh">
       <div className="container">
-            <h3 className="card-title title">
+      <br/>
+            <h1 className="card-title title fz1">
               ¡Toda la informacion sobre hitos Uniandes la encontraras aquí!
-            </h3>
+            </h1>
             <br/>
-            <h5 className="rostext">¿Qué es hitos Uniandes?</h5>
+            <h3 className="rostext">¿Qué es hitos Uniandes?</h3>
             <p className="card-text">
               Hitos Uniandes es un espacio creado por la Oficina
               de Construcción de Comunidad y   (créditos estudiantes)
