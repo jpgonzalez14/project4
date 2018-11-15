@@ -53,7 +53,7 @@ class Signup extends React.Component{
         <Navbar/>
         <br/>
         <br/>
-        <div className='test'>
+        <div className='testh'>
         <div className="container">
           <div className="col-6 mx-auto">
             <div className="card">
@@ -62,16 +62,16 @@ class Signup extends React.Component{
                 {this.state.error ? <div className="alert alert-danger" role="alert">{this.state.error}</div> : undefined}
                 <form onSubmit={this.onSubmit.bind(this)}>
                   <div className="form-group">
-                    <label className="subtitles">Name</label>
+                    <label className="rostext">Name</label>
                     <input type="text" className="form-control" ref='name' name='name' placeholder="Enter name" required />
                   </div>
                   <div className="form-group">
-                    <label className="subtitles">Email address</label>
+                    <label className="rostext">Email address</label>
                     <input type="email" className="form-control" ref='email' name='email' aria-describedby="emailHelp" placeholder="Enter email" required />
                     <small className="form-text text-muted">We will never share your email with anyone else.</small>
                   </div>
                   <div className="form-group">
-                    <label className="subtitles">Password</label>
+                    <label className="rostext">Password</label>
                     <input type="password" className="form-control" ref='password' name='password' placeholder="Password" required />
                   </div>
                   <button type="submit" className="btn btn-primary btn-lg float-right coll">Registrate</button>

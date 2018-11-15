@@ -32,6 +32,9 @@ html, body {
 .title{
   color: #160D24;
 }
+p.subtitles{
+  color: #DF2C6B;
+}
 .subtitles{
   color: #F7B733;
 }
@@ -39,18 +42,18 @@ html, body {
   color: #DF2C6B;
 }
 button.btn.coll {
-  background-color: #DF2C6B;
-  border-color: #DF2C6B;
-}
-button.btn.coll:hover {
   background-color: #F7B733;
   border-color: #F7B733;
+}
+button.btn.coll:hover {
+  background-color: #DF2C6B;
+  border-color: #DF2C6B;
 }
 button.btn.coll:focus,
 button.btn.coll.focus {
   box-shadow: none;
-  background-color: #F7B733;
-  border-color: #F7B733;
+  background-color: #DF2C6B;
+  border-color: #DF2C6B;
 }
 p {
   text-align: justify;
@@ -65,9 +68,7 @@ p {
 .combox{
   width: 17rem;
 }
-.test{
-  height: 540px;
-}
+
 .textareatest{
   white-space: pre-wrap;
 }

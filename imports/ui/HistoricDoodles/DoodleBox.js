@@ -66,7 +66,9 @@ class DoodleBox extends React.Component {
     }else {
       return (
         <div className="card hitbox">
-          <Link to={{pathname: '/doodle',state: { value: this.props }}}><img className="card-img-top" src="http://placehold.it/400x300" alt="Card image cap" /></Link>
+          <Link to={{pathname: '/doodle',state: { value: this.props }}}>
+            <img className="card-img-top" src="http://placehold.it/400x300" alt="Card image cap" />
+          </Link>
           <div className="card-body">
             <h6 className="card-subtitle mb-2 text-muted">
               <small className="rostext">

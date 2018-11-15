@@ -40,19 +40,6 @@ class About extends React.Component{
             </p>
           </div>
           </div>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
       <Footer/>
       </div>
     );
