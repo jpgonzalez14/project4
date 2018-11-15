@@ -75,11 +75,11 @@ class DoodleFormEdit extends React.Component {
           <form onSubmit={this.onSubmit.bind(this)}>
             <div className="row">
               <div className="form-group col-9">
-                <label className="subtitles">Titulo</label>
+                <label className="rostext">Titulo</label>
                 <input type="text" className="form-control" ref='title' name='title' defaultValue={this.props.title} aria-describedby="titleHelp" placeholder="Enter Title" required />
               </div>
               <div className="form-group col-3">
-                <label className="subtitles">Fecha</label>
+                <label className="rostext">Fecha</label>
                 <input
                   className="form-control"
                   type="date"
@@ -90,14 +90,14 @@ class DoodleFormEdit extends React.Component {
               </div>
             </div>
             <div className="form-group">
-              <label className="subtitles">Tipo</label>
+              <label className="rostext">Tipo</label>
               <select className="custom-select my-1 mr-sm-2" ref="tipo" defaultValue={this.props.type}>
                 <option value="Uniandes" >Uniandes</option>
                 <option value="Comunidad" >Comunidad</option>
               </select>
             </div>
             <div className="form-group">
-              <label className="subtitles">Contenido</label>
+              <label className="rostext">Contenido</label>
               <textarea className="form-control" rows="5" ref="parrafo" defaultValue={this.props.parrafo}></textarea>
             </div>
             <div className="float-right">

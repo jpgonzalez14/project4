@@ -50,16 +50,19 @@ h1{
 button.btn.coll {
   background-color: #F7B733;
   border-color: #F7B733;
+  color: #000;
 }
 button.btn.coll:hover {
   background-color: #DF2C6B;
   border-color: #DF2C6B;
+  color: #fff;
 }
 button.btn.coll:focus,
 button.btn.coll.focus {
   box-shadow: none;
   background-color: #DF2C6B;
   border-color: #DF2C6B;
+  color: #fff;
 }
 p {
   text-align: justify;
@@ -76,7 +79,9 @@ p {
 .combox{
   width: 17rem;
 }
-
+.fz{
+  font-size:5vw;
+}
 .textareatest{
   white-space: pre-wrap;
 }

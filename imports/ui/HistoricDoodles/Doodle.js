@@ -32,10 +32,10 @@ class Doodle extends React.Component{
               <img className="card-img-top" src="http://placehold.it/400x300" alt="Card image cap" />
             </div>
             <div className="col-7">
-              <h1 className="card-title title">
+              <h1 className="card-title title fz">
               {this.props.location.state.value.title}
               </h1>
-              <h5 className="rostext"><small>{this.parseDate(this.props.location.state.value.date)}</small></h5>
+              <h5 className="rostext"><small className="padd">{this.parseDate(this.props.location.state.value.date)}</small></h5>
               <p className="textareatest">
               {this.props.location.state.value.parrafo}
               </p>

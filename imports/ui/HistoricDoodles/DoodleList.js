@@ -57,7 +57,7 @@ class DoodleList extends React.Component {
         <br />
         <div className="container">
         <div className="jumbotron">
-            <h1 className="display-4">Hitos Uniandes</h1>
+            <h1 className="display-4 title fz">Hitos Uniandes</h1>
             <p className="lead">
             Hitos Uniandes es un espacio creado
             por la Oficina de Construcción de Comunidad
