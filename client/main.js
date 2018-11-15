@@ -18,6 +18,7 @@ import DoodleListUser from './../imports/ui/HistoricDoodles/DoodleListUser';
 import DoodleForm from './../imports/ui/HistoricDoodles/DoodleForm';
 import DoodleFormEdit from '../imports/ui/HistoricDoodles/DoodleFormEdit';
 import Doodle from '../imports/ui/HistoricDoodles/Doodle';
+import Flickr from '../imports/ui/tests/Flickr';
 
 //import main.html
 import './main.html';
@@ -40,6 +41,9 @@ const routes = (
        <Route exact path="/about" component={About} />
        <Route exact path="/register" component={Signup} />
        <Route exact path="/login" component={Login} />
+
+       <Route exact path="/tests" component={Flickr} />
+       
        <Route exact path="*" component={NotFound} />
      </Switch>
  </Router>
