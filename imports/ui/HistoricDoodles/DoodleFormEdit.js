@@ -46,24 +46,7 @@ class DoodleFormEdit extends React.Component {
     this.props.changeEditForm(false);
     this.props.setDoodleEdit(null);
   }
-  renderOptions() {
-    if (this.props.type === 'Uniandes') {
-      return (
-        <select className="custom-select my-1 mr-sm-2" ref="tipo" >
-          <option value="Uniandes" selected >Uniandes</option>
-          <option value="Comunidad" >Comunidad</option>
-        </select>
-      )
-    } else {
-      return (
-        <select className="custom-select my-1 mr-sm-2" ref="tipo" >
-          <option value="Uniandes" selected >Uniandes</option>
-          <option value="Comunidad" selected >Comunidad</option>
-        </select>
-      )
-    }
-  }
-
+  
   render() {
     return (
       <div>

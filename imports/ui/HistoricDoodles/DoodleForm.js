@@ -30,11 +30,18 @@ class DoodleForm extends React.Component {
       })
       this.refs.parrafo.value = '';
       this.refs.title.value = '';
-      this.refs.date.value = '';
-      this.refs.tipo.value = '';
+      this.refs.date.value = this.today();
+      this.refs.tipo.value = 'Uniandes';
     }
 
+
   }
+
+  today() {
+    let date = (new Date()).toLocaleDateString();
+    return date.split("/").reverse().join("-");
+  }
+
   render() {
     return (
       <div>
@@ -54,6 +61,7 @@ class DoodleForm extends React.Component {
                 <input
                   className="form-control"
                   type="date"
+                  defaultValue={this.today()}
                   name="fechaIngreso"
                   ref='date'
                 />
