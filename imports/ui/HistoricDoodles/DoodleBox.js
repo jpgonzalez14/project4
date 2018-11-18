@@ -32,62 +32,33 @@ class DoodleBox extends React.Component {
     Meteor.call('doodles.remove', this.props.id);
   }
 
-  editDoodle(e) {
-    e.preventDefault();
-    this.props.setDoodleEdit(this.props.id);
-    this.props.changeEditForm(true);
-  }
-
 
   render() {
     console.log(this.props);
-    if (this.props.type === 'Uniandes') {
-      return (
-        <div className="card hitbox">
-          <Link to={{pathname: '/doodle',state: { value: this.props }}}><img className="card-img-top" src="http://placehold.it/400x300" alt="Card image cap" /></Link>
-          <div className="card-body">
-            <h6 className="card-subtitle mb-2 text-muted">
-              <small className="rostext">
-                {this.parseDate(this.props.date)}
-                <span className="badge badge-warning float-right">
-                  {this.props.type}
-                </span>
-              </small>
-            </h6>
-            <Link to={{pathname: '/doodle',state: { value: this.props }}}><h5 className="card-title title">{this.props.title}</h5></Link>
-            <div className='float-right'>
-            <button hidden={!this.props.editable} onClick={(e) => this.editDoodle(e)} className='btn btn-success btn-sm coll'>Editar</button>
+    return (
+      <div className="card hitbox">
+        <Link to={{ pathname: '/doodle', state: { value: this.props } }}><img className="card-img-top" src="http://placehold.it/400x300" alt="Card image cap" /></Link>
+        <div className="card-body">
+          <h6 className="card-subtitle mb-2 text-muted">
+            <small className="rostext">
+              {this.parseDate(this.props.date)}
+              <span className={this.props.type === "Uniandes" ? "badge badge-warning float-right" : "badge morado float-right"}>
+                {this.props.type}
+              </span>
+            </small>
+          </h6>
+          <Link to={{ pathname: '/doodle', state: { value: this.props } }}><h5 className="card-title title">{this.props.title}</h5></Link>
+          <div className='float-right'>
+            <Link to={{ pathname: '/doodlesformsedit', state: { ...this.props } }}>
+              <button hidden={!this.props.editable} className='btn btn-success btn-sm coll'>Editar</button>
+            </Link>
             {' '}
             <button hidden={!this.props.editable} onClick={(e) => this.removeDoodle(e)} className='btn btn-danger btn-sm coll'>Eliminar</button>
-            </div>
           </div>
         </div>
-      );
-    }else {
-      return (
-        <div className="card hitbox">
-          <Link to={{pathname: '/doodle',state: { value: this.props }}}>
-            <img className="card-img-top" src="http://placehold.it/400x300" alt="Card image cap" />
-          </Link>
-          <div className="card-body">
-            <h6 className="card-subtitle mb-2 text-muted">
-              <small className="rostext">
-                {this.parseDate(this.props.date)}
-                <span className="badge morado float-right">
-                  {this.props.type}
-                </span>
-              </small>
-            </h6>
-            <Link to={{pathname: '/doodle',state: { value: this.props }}}><h5 className="card-title title">{this.props.title}</h5></Link>
-            <div className='float-right'>
-            <button hidden={!this.props.editable} onClick={(e) => this.editDoodle(e)} className='btn btn-success btn-sm coll'>Editar</button>
-            {' '}
-            <button hidden={!this.props.editable} onClick={(e) => this.removeDoodle(e)} className='btn btn-danger btn-sm coll'>Eliminar</button>
-            </div>
-          </div>
-        </div>
-      );
-    }
+      </div>
+    );
+
   }
 }
 

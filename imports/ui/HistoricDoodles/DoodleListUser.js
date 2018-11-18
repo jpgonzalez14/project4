@@ -19,8 +19,6 @@ class DoodleListUser extends React.Component {
         this.state = {
             doodle: [],
             editable: true,
-            editForm: false,
-            doodleEdit:  null
         };
     }
     componentDidMount() {
@@ -43,29 +41,13 @@ class DoodleListUser extends React.Component {
         return this.state.doodle.map((doodle) => {
             return (
                 <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo}
-                    editable={this.state.editable} changeEditForm={(editForm) => this.changeEditForm(editForm)}  setDoodleEdit={(id)=>this.setDoodleEdit(id)}/>
+                    editable={this.state.editable} />
             )
         });
     }
 
-    changeEditForm(editForm) {
-        this.setState({ editForm });
-    }
-
-    setDoodleEdit(id) {
-        this.setState({doodleEdit: id})
-    }
-    renderDoodleFormEdit() {
-        const doodle = doodles.findOne({ _id: this.state.doodleEdit});
-        return (<DoodleFormEdit id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo}
-            changeEditForm={(editForm) => this.changeEditForm(editForm)} setDoodleEdit={(id)=>this.setDoodleEdit(id)}/>)
-    }
-
     render() {
-        if (this.state.editForm) {
-            return <div>{this.renderDoodleFormEdit()}</div>
-        }
-        else {
+       
             return (
                 <div>
                     <Navbar />
@@ -83,7 +65,7 @@ class DoodleListUser extends React.Component {
             );
         }
 
-    }
+    
 }
 
 export default DoodleListUser;
