@@ -16,10 +16,22 @@ class DoodleList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      doodle: [],
-      edit: false
+      doodleUniandes: [],
+      doodleComunidad: [],
+      edit: false,
+      currentPageUniandes: 1,
+      currentPageComunidad: 1,
+      doodlesPerPage: 8
     };
+    this.handleClick = this.handleClick.bind(this);
   }
+
+  handleClick(event) {
+    this.setState({
+      currentPage: Number(event.target.id)
+    });
+  }
+
   componentDidMount() {
     document.body.background = '';
     document.body.style.backgroundRepeat = '';
@@ -27,29 +39,29 @@ class DoodleList extends React.Component {
 
     this.doodlesTracker = Tracker.autorun(() => {
       Meteor.subscribe('doodles');
-      const doodle = doodles.find({}).fetch();
-      console.log(doodle);
-      this.setState({ doodle });
+      const doodleUniandes = doodles.find({tipo: 'Uniandes'}).fetch();
+      const doodleComunidad = doodles.find({tipo: 'Comunidad'}).fetch();
+
+      this.setState({ doodleUniandes });
+      this.setState({ doodleComunidad });
     });
   }
   componentWillUnmount() {
     this.doodlesTracker.stop();
   }
   renderDoodlesListUniandes() {
-    return this.state.doodle.map((doodle) => {
-      if (doodle.tipo === 'Uniandes') {
-        return <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo} edit={false}/>
-      }
+
+    return this.state.doodleUniandes.map((doodle) => {
+      return <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo} edit={false}/>
     });
   }
   renderDoodlesListComunidad() {
-    return this.state.doodle.map((doodle) => {
-      if (doodle.tipo === 'Comunidad') {
+    return this.state.doodleComunidad.map((doodle) => {
         return <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo} edit={false}/>
-      }
     });
   }
   render() {
+
     return (
       <div>
         <Navbar />
