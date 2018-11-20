@@ -21,14 +21,14 @@ class DoodleList extends React.Component {
       edit: false,
       currentPageUniandes: 1,
       currentPageComunidad: 1,
-      doodlesPerPage: 8
+      doodlesPerPage: 1
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(event) {
     this.setState({
-      currentPage: Number(event.target.id)
+      currentPageUniandes: Number(event.target.id)
     });
   }
 
@@ -50,8 +50,13 @@ class DoodleList extends React.Component {
     this.doodlesTracker.stop();
   }
   renderDoodlesListUniandes() {
+    const { doodleUniandes, currentPageUniandes, doodlesPerPage } = this.state;
 
-    return this.state.doodleUniandes.map((doodle) => {
+    const indexOfLastDoodle = currentPageUniandes * doodlesPerPage;
+    const indexOfFirstDoodle = indexOfLastDoodle - doodlesPerPage;
+    const currentDoodles = doodleUniandes.slice(indexOfFirstDoodle, indexOfLastDoodle);
+
+    return currentDoodles.map((doodle) => {
       return <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo} edit={false}/>
     });
   }
@@ -61,6 +66,19 @@ class DoodleList extends React.Component {
     });
   }
   render() {
+    const { doodleUniandes, currentPageUniandes, doodlesPerPage } = this.state;
+
+    const pageNumbers = [];
+      for (let i = 1; i <= Math.ceil(doodleUniandes.length / doodlesPerPage); i++) {
+        pageNumbers.push(i);
+    }
+
+    const renderPageNumbers = pageNumbers.map(number => {
+      return (
+        <button className="page-link" key={number} id={number} onClick={this.handleClick}>{number}</button>
+      );
+    });
+
 
     return (
       <div>
@@ -83,6 +101,25 @@ class DoodleList extends React.Component {
         <h1>
         Hitos <span className="badge badge-warning">Uniandes</span>
         </h1>
+
+        <nav aria-label="Page navigation example">
+          <ul className="pagination">
+            <li className="page-item">
+              <a className="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span className="sr-only">Previous</span>
+              </a>
+            </li>
+            <li className="page-item" >{renderPageNumbers}</li>
+            <li className="page-item">
+              <a className="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span className="sr-only">Next</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
         <hr/>
           <div className="row">
               {this.renderDoodlesListUniandes()}
