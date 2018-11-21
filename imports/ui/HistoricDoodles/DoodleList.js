@@ -26,6 +26,9 @@ class DoodleList extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleClickBack = this.handleClickBack.bind(this);
     this.handleClickNext = this.handleClickNext.bind(this);
+    this.handleClickComunidad = this.handleClickComunidad.bind(this);
+    this.handleClickBackComunidad = this.handleClickBackComunidad.bind(this);
+    this.handleClickNextComunidad = this.handleClickNextComunidad.bind(this);
   }
 
   handleClick(event) {
@@ -44,6 +47,25 @@ class DoodleList extends React.Component {
     if (this.state.currentPageUniandes<Math.ceil(this.state.doodleUniandes.length / this.state.doodlesPerPage)) {
       this.setState({
         currentPageUniandes: (this.state.currentPageUniandes + 1)
+      });
+    }
+  }
+  handleClickComunidad(event) {
+    this.setState({
+      currentPageComunidad: Number(event.target.id)
+    });
+  }
+  handleClickBackComunidad(event) {
+    if (this.state.currentPageComunidad>1) {
+      this.setState({
+        currentPageComunidad: (this.state.currentPageComunidad - 1)
+      });
+    }
+  }
+  handleClickNextComunidad(event) {
+    if (this.state.currentPageComunidad<Math.ceil(this.state.doodleComunidad.length / this.state.doodlesPerPage)) {
+      this.setState({
+        currentPageComunidad: (this.state.currentPageComunidad + 1)
       });
     }
   }
@@ -77,18 +99,25 @@ class DoodleList extends React.Component {
     });
   }
   renderDoodlesListComunidad() {
-    return this.state.doodleComunidad.map((doodle) => {
+    const { doodleComunidad, currentPageComunidad, doodlesPerPage } = this.state;
+
+    const indexOfLastDoodleComunidad = currentPageComunidad * doodlesPerPage;
+    const indexOfFirstDoodleComunidad = indexOfLastDoodleComunidad - doodlesPerPage;
+    const currentDoodlesComunidad = doodleComunidad.slice(indexOfFirstDoodleComunidad, indexOfLastDoodleComunidad);
+
+    return currentDoodlesComunidad.map((doodle) => {
         return <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo} edit={false}/>
     });
   }
   render() {
-    const { doodleUniandes, currentPageUniandes, doodlesPerPage } = this.state;
+    const { doodleUniandes, doodleComunidad, currentPageUniandes, currentPageComunidad, doodlesPerPage } = this.state;
 
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(doodleUniandes.length / doodlesPerPage); i++) {
       pageNumbers.push(i);
     }
     var pages = Math.ceil(doodleUniandes.length / doodlesPerPage);
+    var pagesComunidad = Math.ceil(doodleComunidad.length / doodlesPerPage);
     const renderPageNumbers = pageNumbers.map(number => {
       if (pages>=1 && pages<= 3) {
         return (
@@ -103,7 +132,24 @@ class DoodleList extends React.Component {
         }
       }
     });
-
+    const pageNumbersComunidad = [];
+    for (let i = 1; i <= Math.ceil(doodleComunidad.length / doodlesPerPage); i++) {
+      pageNumbersComunidad.push(i);
+    }
+    const renderPageNumbersComunidad = pageNumbersComunidad.map(number => {
+      if (pages>=1 && pages<= 3) {
+        return (
+          <li className="page-item" key={number}><button className="page-link" id={number} onClick={this.handleClick}>{number}</button></li>
+        );
+      }
+      else {
+        if ((number<=(currentPageUniandes+1)&&number>=(currentPageUniandes-1))) {
+          return (
+            <li className="page-item" key={number}><button className="page-link" id={number} onClick={this.handleClick}>{number}</button></li>
+          );
+        }
+      }
+    });
 
     return (
       <div>
@@ -154,6 +200,25 @@ class DoodleList extends React.Component {
           <h1>
           Hitos <span className="badge morado">Comunidad</span>
           </h1>
+
+          <nav aria-label="Page navigation example">
+            <ul className="pagination">
+              <li className="page-item">
+                <button className="page-link" aria-label="Previous" onClick={this.handleClickBackComunidad}>
+                  <span aria-hidden="true">&laquo;</span>
+                  <span className="sr-only">Previous</span>
+                </button>
+              </li>
+              {renderPageNumbersComunidad}
+              <li className="page-item">
+                <button className="page-link" aria-label="Next" onClick={this.handleClickNextComunidad}>
+                  <span aria-hidden="true">&raquo;</span>
+                  <span className="sr-only">Next</span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+
           <hr/>
           <div className="row">
             {this.renderDoodlesListComunidad()}

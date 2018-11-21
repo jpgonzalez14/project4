@@ -28,13 +28,11 @@ class DoodleBox extends React.Component {
 
   removeDoodle(e) {
     e.preventDefault();
-    console.log(this.props.id);
     Meteor.call('doodles.remove', this.props.id);
   }
 
 
   render() {
-    console.log(this.props);
     return (
       <div className="card hitbox">
         <Link to={{ pathname: '/doodle', state: { value: this.props } }}><img className="card-img-top" src="http://placehold.it/400x300" alt="Card image cap" /></Link>
