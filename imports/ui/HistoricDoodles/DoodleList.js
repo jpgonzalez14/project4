@@ -21,15 +21,31 @@ class DoodleList extends React.Component {
       edit: false,
       currentPageUniandes: 1,
       currentPageComunidad: 1,
-      doodlesPerPage: 1
+      doodlesPerPage: 8
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleClickBack = this.handleClickBack.bind(this);
+    this.handleClickNext = this.handleClickNext.bind(this);
   }
 
   handleClick(event) {
     this.setState({
       currentPageUniandes: Number(event.target.id)
     });
+  }
+  handleClickBack(event) {
+    if (this.state.currentPageUniandes>1) {
+      this.setState({
+        currentPageUniandes: (this.state.currentPageUniandes - 1)
+      });
+    }
+  }
+  handleClickNext(event) {
+    if (this.state.currentPageUniandes<Math.ceil(this.state.doodleUniandes.length / this.state.doodlesPerPage)) {
+      this.setState({
+        currentPageUniandes: (this.state.currentPageUniandes + 1)
+      });
+    }
   }
 
   componentDidMount() {
@@ -69,14 +85,23 @@ class DoodleList extends React.Component {
     const { doodleUniandes, currentPageUniandes, doodlesPerPage } = this.state;
 
     const pageNumbers = [];
-      for (let i = 1; i <= Math.ceil(doodleUniandes.length / doodlesPerPage); i++) {
-        pageNumbers.push(i);
+    for (let i = 1; i <= Math.ceil(doodleUniandes.length / doodlesPerPage); i++) {
+      pageNumbers.push(i);
     }
-
+    var pages = Math.ceil(doodleUniandes.length / doodlesPerPage);
     const renderPageNumbers = pageNumbers.map(number => {
-      return (
-        <button className="page-link" key={number} id={number} onClick={this.handleClick}>{number}</button>
-      );
+      if (pages>=1 && pages<= 3) {
+        return (
+          <li className="page-item" key={number}><button className="page-link" id={number} onClick={this.handleClick}>{number}</button></li>
+        );
+      }
+      else {
+        if ((number<=(currentPageUniandes+1)&&number>=(currentPageUniandes-1))) {
+          return (
+            <li className="page-item" key={number}><button className="page-link" id={number} onClick={this.handleClick}>{number}</button></li>
+          );
+        }
+      }
     });
 
 
@@ -101,21 +126,21 @@ class DoodleList extends React.Component {
         <h1>
         Hitos <span className="badge badge-warning">Uniandes</span>
         </h1>
-
+        <br/>
         <nav aria-label="Page navigation example">
           <ul className="pagination">
             <li className="page-item">
-              <a className="page-link" href="#" aria-label="Previous">
+              <button className="page-link" aria-label="Previous" onClick={this.handleClickBack}>
                 <span aria-hidden="true">&laquo;</span>
                 <span className="sr-only">Previous</span>
-              </a>
+              </button>
             </li>
-            <li className="page-item" >{renderPageNumbers}</li>
+            {renderPageNumbers}
             <li className="page-item">
-              <a className="page-link" href="#" aria-label="Next">
+              <button className="page-link" aria-label="Next" onClick={this.handleClickNext}>
                 <span aria-hidden="true">&raquo;</span>
                 <span className="sr-only">Next</span>
-              </a>
+              </button>
             </li>
           </ul>
         </nav>
