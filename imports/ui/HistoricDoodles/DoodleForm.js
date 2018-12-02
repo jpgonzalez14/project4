@@ -38,8 +38,8 @@ class DoodleForm extends React.Component {
   }
 
   today() {
-    let date = (new Date()).toLocaleDateString();
-    return date.split("/").reverse().join("-");
+    const date = (new Date()).toJSON().split('T');
+    return date[0];
   }
 
   render() {
@@ -64,6 +64,7 @@ class DoodleForm extends React.Component {
                   defaultValue={this.today()}
                   name="fechaIngreso"
                   ref='date'
+                  required
                 />
               </div>
             </div>
@@ -76,7 +77,7 @@ class DoodleForm extends React.Component {
             </div>
             <div className="form-group">
               <label className="rostext">Contenido</label>
-              <textarea className="form-control" rows="5" ref="parrafo"></textarea>
+              <textarea className="form-control" rows="5" ref="parrafo" required></textarea>
             </div>
             <button type="submit" className="btn btn-primary btn-lg float-right coll">Crear</button>
           </form>
