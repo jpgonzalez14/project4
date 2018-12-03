@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import './../imports/api/users';
+import './../imports/api/roles';
 import './../imports/api/doodles';
 import './../imports/api/flickr';
 require('dotenv').config();

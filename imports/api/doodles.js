@@ -70,12 +70,13 @@ Meteor.methods({
       throw new Meteor.Error(400, e.message);
     }
 
-    doodles.update({_id: doodleId, userId: this.userId},{
-      title,
-      parrafo,
-      date,
-      tipo,
-      userId: this.userId
+    doodles.update({_id: doodleId},{
+      $set: {
+        title,
+        parrafo,
+        date,
+        tipo,
+      }
     });
   },
   'doodles.remove'(doodleId) {
