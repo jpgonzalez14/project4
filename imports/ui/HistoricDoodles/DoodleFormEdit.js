@@ -22,10 +22,8 @@ class DoodleFormEdit extends React.Component {
     let parrafo = this.refs.parrafo.value.trim();
     let title = this.refs.title.value.trim();
     let date = this.refs.date.value.trim();
-    let tipo = this.refs.tipo.value.trim();
-    if (parrafo && title && date && tipo) {
-      console.log('entro con ' + parrafo + title + date + tipo);
-      Meteor.call('doodles.update', this.doodle.id, title, parrafo, date, tipo, (err, res) => {
+    if (parrafo && title && date) {
+      Meteor.call('doodles.update', this.doodle.id, title, parrafo, date, (err, res) => {
         if (err) {
           this.setState({ success: 'Hubo un error. No se pudo editar el hito :(' });
         }
@@ -60,19 +58,13 @@ class DoodleFormEdit extends React.Component {
                   defaultValue={this.doodle.date}
                   name="fechaIngreso"
                   ref='date'
+                  required
                 />
               </div>
             </div>
             <div className="form-group">
-              <label className="rostext">Tipo</label>
-              <select className="custom-select my-1 mr-sm-2" ref="tipo" defaultValue={this.doodle.type}>
-                <option value="Uniandes" >Uniandes</option>
-                <option value="Comunidad" >Comunidad</option>
-              </select>
-            </div>
-            <div className="form-group">
               <label className="rostext">Contenido</label>
-              <textarea className="form-control" rows="5" ref="parrafo" defaultValue={this.doodle.parrafo}></textarea>
+              <textarea className="form-control" rows="5" ref="parrafo" defaultValue={this.doodle.parrafo} required></textarea>
             </div>
             <div className="float-right">
             <button type="submit" className="btn btn-primary btn-lg coll">Editar</button>

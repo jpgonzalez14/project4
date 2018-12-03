@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { doodles } from './../../api/doodles';
-
+import { roles } from './../../api/roles';
 import Navbar from './../layouts/Navbar';
 import Footer from './../layouts/Footer';
 
@@ -11,8 +11,16 @@ class DoodleForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      success: ''
+      success: '',
+      userRole: 'User'
     };
+  }
+
+  componentDidMount() {
+    Meteor.subscribe('roles', () => {
+      const role = roles.find({ user: Meteor.userId() }).fetch();
+      if (role.length === 1) this.setState({ userRole: role[0].role });
+    });
   }
 
   onSubmit(e) {
@@ -20,7 +28,7 @@ class DoodleForm extends React.Component {
     let parrafo = this.refs.parrafo.value.trim();
     let title = this.refs.title.value.trim();
     let date = this.refs.date.value.trim();
-    let tipo = this.refs.tipo.value.trim();
+    let tipo = this.state.userRole === 'User' ? 'Comunidad' : 'Uniandes';
     if (parrafo && title && date) {
       Meteor.call('doodles.insert', title, parrafo, date, tipo, (err, res) => {
         if (err)
@@ -31,7 +39,6 @@ class DoodleForm extends React.Component {
       this.refs.parrafo.value = '';
       this.refs.title.value = '';
       this.refs.date.value = this.today();
-      this.refs.tipo.value = 'Uniandes';
     }
 
 
@@ -68,13 +75,7 @@ class DoodleForm extends React.Component {
                 />
               </div>
             </div>
-            <div className="form-group">
-              <label className="rostext">Tipo</label>
-              <select className="custom-select my-1 mr-sm-2" ref="tipo">
-                <option value="Uniandes">Uniandes</option>
-                <option value="Comunidad">Comunidad</option>
-              </select>
-            </div>
+           
             <div className="form-group">
               <label className="rostext">Contenido</label>
               <textarea className="form-control" rows="5" ref="parrafo" required></textarea>

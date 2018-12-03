@@ -46,7 +46,7 @@ Meteor.methods({
       userId: this.userId
     });
   },
-  'doodles.update'(doodleId, title, parrafo, date, tipo) {
+  'doodles.update'(doodleId, title, parrafo, date) {
     if (!this.userId) {
       throw new Meteor.Error('not-authorized');
     }
@@ -61,11 +61,8 @@ Meteor.methods({
         },
         date: {
           type: String
-        },
-        tipo: {
-          type: String
         }
-      }).validate({ title, parrafo, date, tipo });
+      }).validate({ title, parrafo, date });
     } catch (e) {
       throw new Meteor.Error(400, e.message);
     }
@@ -75,7 +72,6 @@ Meteor.methods({
         title,
         parrafo,
         date,
-        tipo,
       }
     });
   },
