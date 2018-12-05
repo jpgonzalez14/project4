@@ -106,11 +106,21 @@ class DoodleList extends React.Component {
     const indexOfLastDoodle = currentPageUniandes * doodlesPerPage;
     const indexOfFirstDoodle = indexOfLastDoodle - doodlesPerPage;
     const currentDoodles = doodleUniandes.slice(indexOfFirstDoodle, indexOfLastDoodle);
+    if (doodleUniandes.length>0) {
+      return currentDoodles.map((doodle) => {
+        return <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo}
+          editable={this.state.userRole === 'Admin'} />
+      });
+    } else {
+      return (
+        <div className="alert alert-warning" role="alert">
+          <h1 className="alert-heading">No hay Hitos Uniandes</h1>
+          <p>Te invitamos a crear nuevos hitos para que toda la comunidad pueda verlos e inspirarse a tener experiencias inolvidables dentro de la Universidad</p>
+        </div>
+      );
 
-    return currentDoodles.map((doodle) => {
-      return <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo}
-        editable={this.state.userRole === 'Admin'} />
-    });
+    }
+
   }
   renderDoodlesListComunidad() {
     const { doodleComunidad, currentPageComunidad, doodlesPerPage } = this.state;
@@ -118,11 +128,19 @@ class DoodleList extends React.Component {
     const indexOfLastDoodleComunidad = currentPageComunidad * doodlesPerPage;
     const indexOfFirstDoodleComunidad = indexOfLastDoodleComunidad - doodlesPerPage;
     const currentDoodlesComunidad = doodleComunidad.slice(indexOfFirstDoodleComunidad, indexOfLastDoodleComunidad);
-
-    return currentDoodlesComunidad.map((doodle) => {
-      return <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo}
-        editable={this.state.userRole === 'Admin'} />
-    });
+    if (doodleComunidad.length>0) {
+      return currentDoodlesComunidad.map((doodle) => {
+        return <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo}
+          editable={this.state.userRole === 'Admin'} />
+      });
+    } else {
+      return (
+        <div className="alert alert-warning" role="alert">
+          <h1 className="alert-heading">No hay Hitos Comunidad</h1>
+          <p>Te invitamos a crear nuevos hitos para que toda la comunidad pueda verlos e inspirarse a tener experiencias inolvidables dentro de la Universidad</p>
+        </div>
+      );
+    }
   }
   render() {
     const { doodleUniandes, doodleComunidad, currentPageUniandes, currentPageComunidad, doodlesPerPage } = this.state;
