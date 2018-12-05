@@ -183,7 +183,7 @@ class DoodleList extends React.Component {
             </p>
           </div>
           <div className="container">
-            <input type='text' ref='search' name='search' placeholder='Buscar hitos' onKeyUp={()=>this.searchDoodles()}></input>
+            <input type='text' className="form-control" ref='search' name='search' placeholder='Buscar hitos' onKeyUp={()=>this.searchDoodles()}></input>
             <br />
             <h1>
               Hitos <span className="badge badge-warning">Uniandes</span>
