@@ -154,13 +154,13 @@ class DoodleList extends React.Component {
     const renderPageNumbers = pageNumbers.map(number => {
       if (pages >= 1 && pages <= 3) {
         return (
-          <li className="page-item" key={number}><button className="page-link" id={number} onClick={this.handleClick}>{number}</button></li>
+          <li className="page-item" key={number}><button className="page-link" id={number} onClick={this.handleClick}><span className="rostext">{number}</span></button></li>
         );
       }
       else {
         if ((number <= (currentPageUniandes + 1) && number >= (currentPageUniandes - 1))) {
           return (
-            <li className="page-item" key={number}><button className="page-link" id={number} onClick={this.handleClick}>{number}</button></li>
+            <li className="page-item" key={number}><button className="page-link" id={number} onClick={this.handleClick}><span className="rostext">{number}</span></button></li>
           );
         }
       }
@@ -172,13 +172,13 @@ class DoodleList extends React.Component {
     const renderPageNumbersComunidad = pageNumbersComunidad.map(number => {
       if (pages >= 1 && pages <= 3) {
         return (
-          <li className="page-item" key={number}><button className="page-link" id={number} onClick={this.handleClick}>{number}</button></li>
+          <li className="page-item" key={number}><button className="page-link" id={number} onClick={this.handleClick}><span className="rostext">{number}</span></button></li>
         );
       }
       else {
         if ((number <= (currentPageUniandes + 1) && number >= (currentPageUniandes - 1))) {
           return (
-            <li className="page-item" key={number}><button className="page-link" id={number} onClick={this.handleClick}>{number}</button></li>
+            <li className="page-item" key={number}><button className="page-link" id={number} onClick={this.handleClick}><span className="rostext">{number}</span></button></li>
           );
         }
       }
@@ -210,22 +210,22 @@ class DoodleList extends React.Component {
             <div className="row">
               {this.renderDoodlesListUniandes()}
             </div>
-
+            <br/>
             {pages>0 ? <div className="row">
             <div className="col-10"><p>Pagina {currentPageUniandes} de {pages}</p></div>
             <div className="col-2"><nav aria-label="Page navigation example" className="d-flex justify-content-end">
               <ul className="pagination">
                 <li className="page-item">
                   <button className="page-link" aria-label="Previous" onClick={this.handleClickBack}>
-                    <span aria-hidden="true">&laquo;</span>
-                    <span className="sr-only">Previous</span>
+                    <span aria-hidden="true" className="rostext">&laquo;</span>
+                    <span className="sr-only rostext">Previous</span>
                   </button>
                 </li>
                 {renderPageNumbers}
                 <li className="page-item">
                   <button className="page-link" aria-label="Next" onClick={this.handleClickNext}>
-                    <span aria-hidden="true">&raquo;</span>
-                    <span className="sr-only">Next</span>
+                    <span aria-hidden="true" className="rostext">&raquo;</span>
+                    <span className="sr-only rostext">Next</span>
                   </button>
                 </li>
               </ul>
@@ -241,8 +241,7 @@ class DoodleList extends React.Component {
             <div className="row">
               {this.renderDoodlesListComunidad()}
             </div>
-
-
+            <br/>
             {pagesComunidad>0 ? <div className="row">
             <div className="col-10"><p>Pagina {currentPageComunidad} de {pagesComunidad}</p></div>
             <div className="col-2"><nav aria-label="Page navigation example" className="d-flex justify-content-end">
@@ -250,20 +249,18 @@ class DoodleList extends React.Component {
                 <li className="page-item">
                   <button className="page-link" aria-label="Previous" onClick={this.handleClickBackComunidad}>
                     <span aria-hidden="true">&laquo;</span>
-                    <span className="sr-only">Previous</span>
+                    <span className="sr-only rostext">Previous</span>
                   </button>
                 </li>
                 {renderPageNumbersComunidad}
                 <li className="page-item">
                   <button className="page-link" aria-label="Next" onClick={this.handleClickNextComunidad}>
                     <span aria-hidden="true">&raquo;</span>
-                    <span className="sr-only">Next</span>
+                    <span className="sr-only rostext">Next</span>
                   </button>
                 </li>
               </ul>
             </nav></div></div> : undefined}
-
-
           </div>
         </div>
         <br />
