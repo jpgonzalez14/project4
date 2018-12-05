@@ -39,7 +39,7 @@ p.subtitles{
 }
 .subtitles{
   color: #F7B733;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 h1{
   font-family: 'Roboto', sans-serif;
@@ -66,12 +66,12 @@ button.btn.coll.focus {
 }
 p {
   text-align: justify;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 
 }
 p.center{
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .hitbox{
   width: 16rem;

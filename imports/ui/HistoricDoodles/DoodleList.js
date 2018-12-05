@@ -189,7 +189,7 @@ class DoodleList extends React.Component {
         <Navbar />
         <br />
         <br />
-        <div className="container">
+        <div className="container testh">
           <div className="jumbotron">
             <h1 className="display-4 title fz">Hitos Uniandes</h1>
             <p className="lead">
@@ -210,7 +210,10 @@ class DoodleList extends React.Component {
             <div className="row">
               {this.renderDoodlesListUniandes()}
             </div>
-            <nav aria-label="Page navigation example" className="d-flex justify-content-end">
+
+            {pages>0 ? <div className="row">
+            <div className="col-10"><p>Pagina {currentPageUniandes} de {pages}</p></div>
+            <div className="col-2"><nav aria-label="Page navigation example" className="d-flex justify-content-end">
               <ul className="pagination">
                 <li className="page-item">
                   <button className="page-link" aria-label="Previous" onClick={this.handleClickBack}>
@@ -226,7 +229,9 @@ class DoodleList extends React.Component {
                   </button>
                 </li>
               </ul>
-            </nav>
+            </nav></div></div> : undefined}
+
+
             <br />
             <br />
             <h1>
@@ -236,7 +241,11 @@ class DoodleList extends React.Component {
             <div className="row">
               {this.renderDoodlesListComunidad()}
             </div>
-            <nav aria-label="Page navigation example" className="d-flex justify-content-end">
+
+
+            {pagesComunidad>0 ? <div className="row">
+            <div className="col-10"><p>Pagina {currentPageComunidad} de {pagesComunidad}</p></div>
+            <div className="col-2"><nav aria-label="Page navigation example" className="d-flex justify-content-end">
               <ul className="pagination">
                 <li className="page-item">
                   <button className="page-link" aria-label="Previous" onClick={this.handleClickBackComunidad}>
@@ -252,7 +261,9 @@ class DoodleList extends React.Component {
                   </button>
                 </li>
               </ul>
-            </nav>
+            </nav></div></div> : undefined}
+
+
           </div>
         </div>
         <br />
