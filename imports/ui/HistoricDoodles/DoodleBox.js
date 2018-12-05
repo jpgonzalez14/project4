@@ -37,14 +37,15 @@ class DoodleBox extends React.Component {
       <div className="card hitbox">
         <Link to={{ pathname: '/doodle', state: { value: this.props } }}><img className="card-img-top" src="http://placehold.it/400x300" alt="Card image cap" /></Link>
         <div className="card-body">
-          <h6 className="card-subtitle mb-2 text-muted">
-            <small className="rostext">
-              {this.parseDate(this.props.date)}
-              <span className={this.props.type === "Uniandes" ? "badge badge-warning float-right" : "badge morado float-right"}>
-                {this.props.type}
-              </span>
-            </small>
-          </h6>
+          <small className="card-subtitle mb-2 text-muted">
+          Hito <span className={this.props.type === "Uniandes" ? "badge badge-warning" : "badge morado"}>
+            {this.props.type}
+          </span>
+          </small>
+          <br/>
+          <small className="rostext">
+            {this.parseDate(this.props.date)}
+          </small>
           <Link to={{ pathname: '/doodle', state: { value: this.props } }}><h5 className="card-title title">{this.props.title}</h5></Link>
           <div className='float-right'>
             <Link to={{ pathname: '/doodlesformsedit', state: { ...this.props } }}>

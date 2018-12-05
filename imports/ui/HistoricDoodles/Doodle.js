@@ -25,13 +25,15 @@ class Doodle extends React.Component{
       <Navbar/>
         <div className="container testh">
         <br/>
+        <Link to="/"><h4 className="rostext1">{'< Regresar'}</h4></Link>
           <div className="row">
-            <div className="col-5">
+            <div className="col-sm-12 col-lg-4">
               <br/>
               <br/>
               <img className="card-img-top" src="http://placehold.it/400x300" alt="Card image cap" />
+              <br/>
             </div>
-            <div className="col-7">
+            <div className="col-sm-12 col-lg-8">
               <h1 className="card-title title fz">
               {this.props.location.state.value.title}
               </h1>

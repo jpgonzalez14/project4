@@ -47,6 +47,14 @@ h1{
 .rostext{
   color: #DF2C6B;
 }
+.rostext1{
+  color: #DF2C6B;
+}
+.rostext1:hover{
+  color: gray;
+  text-decoration: none;
+}
+
 button.btn.coll {
   background-color: #F7B733;
   border-color: #F7B733;
@@ -87,7 +95,7 @@ p.center{
   font-size:5vw;
 }
 .fz1{
-  font-size:4vw;
+  font-size:3vw;
 }
 .textareatest{
   white-space: pre-wrap;

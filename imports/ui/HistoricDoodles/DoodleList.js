@@ -248,14 +248,14 @@ class DoodleList extends React.Component {
               <ul className="pagination">
                 <li className="page-item">
                   <button className="page-link" aria-label="Previous" onClick={this.handleClickBackComunidad}>
-                    <span aria-hidden="true">&laquo;</span>
+                    <span aria-hidden="true" className="rostext">&laquo;</span>
                     <span className="sr-only rostext">Previous</span>
                   </button>
                 </li>
                 {renderPageNumbersComunidad}
                 <li className="page-item">
                   <button className="page-link" aria-label="Next" onClick={this.handleClickNextComunidad}>
-                    <span aria-hidden="true">&raquo;</span>
+                    <span aria-hidden="true" className="rostext">&raquo;</span>
                     <span className="sr-only rostext">Next</span>
                   </button>
                 </li>

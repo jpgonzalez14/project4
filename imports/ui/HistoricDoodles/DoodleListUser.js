@@ -50,9 +50,9 @@ class DoodleListUser extends React.Component {
             <div className="card mb-3 text-center">
               <img className="card-img-top size" src="recortado.png" alt="Card image cap"/>
               <div className="card-body">
-                <h5 className="card-title">Special title treatment</h5>
-                <p className="card-text center">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
+                <h5 className="card-title">No tienes ningun Hito</h5>
+                <p className="card-text center">Te invitamos a compartir experiencias que inspires a toda la comunidad!</p>
+                <Link to="/doodlesforms"><button className="btn btn-primary btn-lg coll">Crea un Hito!</button></Link>
               </div>
             </div>
           </div>
@@ -69,16 +69,18 @@ class DoodleListUser extends React.Component {
                     <div className="testh">
                       <br />
                       <div className="container">
-                      <h1>
-                        Tus Hitos
-                      </h1>
-                      {this.state.doodle.length>0 ? <div className="alert alert-success alert-dismissible fade show" role="alert">
+
+                      {this.state.doodle.length>0 ? <div>
+                        <h1>
+                          Tus Hitos
+                        </h1>
+                        <hr/>
+                        <div className="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Bienvenido!</strong> Qué historias te gustaria compartir hoy?
                         <button type="button" className="close" data-dismiss="alert" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
-                      </div> : undefined}
-                      <hr/>
+                      </div></div> : undefined}
                           <div className="row">
                                   {this.renderDoodlesList()}
                           </div>
