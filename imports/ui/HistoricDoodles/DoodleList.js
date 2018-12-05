@@ -78,6 +78,8 @@ class DoodleList extends React.Component {
     document.body.style.backgroundSize = '';
 
     this.doodlesTracker = Tracker.autorun(() => {
+      const doodleUniandes = doodles.find({ tipo: 'Uniandes' }).fetch();
+      const doodleComunidad = doodles.find({ tipo: 'Comunidad' }).fetch();
       Meteor.subscribe('doodles', () => {
         const doodleUniandes = doodles.find({ tipo: 'Uniandes' }).fetch();
         const doodleComunidad = doodles.find({ tipo: 'Comunidad' }).fetch();
@@ -86,7 +88,7 @@ class DoodleList extends React.Component {
       Meteor.subscribe('roles', () => {
         const role = roles.find({user: Meteor.userId()}).fetch();
         if (role.length === 1) this.setState({userRole: role[0].role});
-       
+
       });
     });
   }
