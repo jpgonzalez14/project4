@@ -78,6 +78,8 @@ class DoodleList extends React.Component {
     document.body.style.backgroundSize = '';
 
     this.doodlesTracker = Tracker.autorun(() => {
+      const doodleUniandes = doodles.find({ tipo: 'Uniandes' }).fetch();
+      const doodleComunidad = doodles.find({ tipo: 'Comunidad' }).fetch();
       Meteor.subscribe('doodles', () => {
         const doodleUniandes = doodles.find({ tipo: 'Uniandes' }).fetch();
         const doodleComunidad = doodles.find({ tipo: 'Comunidad' }).fetch();
