@@ -72,24 +72,29 @@ class DoodleList extends React.Component {
     }
   }
 
+  searchDoodles() {
+    const term = this.refs.search.value.toLowerCase().trim();
+    let doodleUniandes = doodles.find({ tipo: 'Uniandes' }).fetch();
+    let doodleComunidad = doodles.find({ tipo: 'Comunidad' }).fetch();
+    if (term) {
+      doodleUniandes = doodleUniandes.filter(d => d.title.toLowerCase().startsWith(term));
+      doodleComunidad = doodleComunidad.filter(d => d.title.toLowerCase().startsWith(term));
+    }
+    this.setState({ doodleUniandes, doodleComunidad });
+  }
+
   componentDidMount() {
     document.body.background = '';
     document.body.style.backgroundRepeat = '';
     document.body.style.backgroundSize = '';
-
     this.doodlesTracker = Tracker.autorun(() => {
+      Meteor.subscribe('doodles');
+      Meteor.subscribe('roles');
+      const role = roles.find({ user: Meteor.userId() }).fetch();
+      if (role.length === 1) this.setState({ userRole: role[0].role });
       const doodleUniandes = doodles.find({ tipo: 'Uniandes' }).fetch();
       const doodleComunidad = doodles.find({ tipo: 'Comunidad' }).fetch();
-      Meteor.subscribe('doodles', () => {
-        const doodleUniandes = doodles.find({ tipo: 'Uniandes' }).fetch();
-        const doodleComunidad = doodles.find({ tipo: 'Comunidad' }).fetch();
-        this.setState({ doodleUniandes, doodleComunidad });
-      });
-      Meteor.subscribe('roles', () => {
-        const role = roles.find({user: Meteor.userId()}).fetch();
-        if (role.length === 1) this.setState({userRole: role[0].role});
-       
-      });
+      this.setState({ doodleUniandes, doodleComunidad });
     });
   }
   componentWillUnmount() {
@@ -178,6 +183,7 @@ class DoodleList extends React.Component {
             </p>
           </div>
           <div className="container">
+            <input type='text' ref='search' name='search' placeholder='Buscar hitos' onKeyUp={()=>this.searchDoodles()}></input>
             <br />
             <h1>
               Hitos <span className="badge badge-warning">Uniandes</span>

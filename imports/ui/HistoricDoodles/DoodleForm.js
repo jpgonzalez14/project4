@@ -23,6 +23,7 @@ class DoodleForm extends React.Component {
     });
   }
 
+
   onSubmit(e) {
     e.preventDefault();
     let parrafo = this.refs.parrafo.value.trim();
@@ -38,7 +39,7 @@ class DoodleForm extends React.Component {
       })
       this.refs.parrafo.value = '';
       this.refs.title.value = '';
-      this.refs.date.value = this.today();
+      this.refs.date.value = '';
     }
 
 
