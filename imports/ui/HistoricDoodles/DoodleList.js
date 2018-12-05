@@ -206,8 +206,11 @@ class DoodleList extends React.Component {
             <h1>
               Hitos <span className="badge badge-warning">Uniandes</span>
             </h1>
-            <br />
-            <nav aria-label="Page navigation example">
+            <hr />
+            <div className="row">
+              {this.renderDoodlesListUniandes()}
+            </div>
+            <nav aria-label="Page navigation example" className="d-flex justify-content-end">
               <ul className="pagination">
                 <li className="page-item">
                   <button className="page-link" aria-label="Previous" onClick={this.handleClickBack}>
@@ -224,18 +227,16 @@ class DoodleList extends React.Component {
                 </li>
               </ul>
             </nav>
-
-            <hr />
-            <div className="row">
-              {this.renderDoodlesListUniandes()}
-            </div>
             <br />
             <br />
             <h1>
               Hitos <span className="badge morado">Comunidad</span>
             </h1>
-
-            <nav aria-label="Page navigation example">
+            <hr />
+            <div className="row">
+              {this.renderDoodlesListComunidad()}
+            </div>
+            <nav aria-label="Page navigation example" className="d-flex justify-content-end">
               <ul className="pagination">
                 <li className="page-item">
                   <button className="page-link" aria-label="Previous" onClick={this.handleClickBackComunidad}>
@@ -252,11 +253,6 @@ class DoodleList extends React.Component {
                 </li>
               </ul>
             </nav>
-
-            <hr />
-            <div className="row">
-              {this.renderDoodlesListComunidad()}
-            </div>
           </div>
         </div>
         <br />

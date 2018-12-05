@@ -95,3 +95,7 @@ p.center{
 .testh{
   min-height:80vh;
 }
+.example{
+  position: relative;
+  float: right;
+}

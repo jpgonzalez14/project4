@@ -69,13 +69,16 @@ class DoodleListUser extends React.Component {
                     <div className="testh">
                       <br />
                       <div className="container">
+                      <h1>
+                        Tus Hitos
+                      </h1>
                       {this.state.doodle.length>0 ? <div className="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Bienvenido!</strong> Qué historias te gustaria compartir hoy?
                         <button type="button" className="close" data-dismiss="alert" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div> : undefined}
-
+                      <hr/>
                           <div className="row">
                                   {this.renderDoodlesList()}
                           </div>
