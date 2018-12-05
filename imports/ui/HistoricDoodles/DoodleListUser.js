@@ -37,12 +37,28 @@ class DoodleListUser extends React.Component {
         this.doodlesTracker.stop();
     }
     renderDoodlesList() {
+      if (this.state.doodle.length>0) {
         return this.state.doodle.map((doodle) => {
             return (
                 <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo}
                     editable={this.state.editable} />
             )
         });
+      } else {
+        return(
+          <div className="container">
+            <div className="card mb-3 text-center">
+              <img className="card-img-top size" src="recortado.png" alt="Card image cap"/>
+              <div className="card-body">
+                <h5 className="card-title">Special title treatment</h5>
+                <p className="card-text center">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" className="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
     }
 
     render() {
@@ -51,18 +67,15 @@ class DoodleListUser extends React.Component {
                     <Navbar />
                     <br />
                     <div className="testh">
-                      <div className="container">
-                        <div className="card mb-3 text-center">
-                          <img className="card-img-top size" src="recortado.png" alt="Card image cap"/>
-                          <div className="card-body">
-                            <h5 className="card-title">Special title treatment</h5>
-                            <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
-                          </div>
-                        </div>
-                      </div>
                       <br />
                       <div className="container">
+                      {this.state.doodle.length>0 ? <div className="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Bienvenido!</strong> Qué historias te gustaria compartir hoy?
+                        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div> : undefined}
+
                           <div className="row">
                                   {this.renderDoodlesList()}
                           </div>
