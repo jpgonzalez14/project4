@@ -10,6 +10,8 @@ class About extends React.Component{
     document.body.style.backgroundRepeat = '';
     document.body.style.backgroundSize = '';
   }
+
+
   render(){
     return (
       <div>
