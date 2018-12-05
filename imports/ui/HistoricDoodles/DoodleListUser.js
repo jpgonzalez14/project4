@@ -37,7 +37,6 @@ class DoodleListUser extends React.Component {
         this.doodlesTracker.stop();
     }
     renderDoodlesList() {
-        //<p key={ doodle._id }>{ doodle.parrafo } - { doodle.title} - { doodle.date }</p>
         return this.state.doodle.map((doodle) => {
             return (
                 <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo}
@@ -47,25 +46,32 @@ class DoodleListUser extends React.Component {
     }
 
     render() {
-       
             return (
                 <div>
                     <Navbar />
                     <br />
-                    <br />
-                    <div className="container testh">
-                        <div className="row">
-                                {this.renderDoodlesList()}
+                    <div className="testh">
+                      <div className="container">
+                        <div className="card mb-3 text-center">
+                          <img className="card-img-top size" src="recortado.png" alt="Card image cap"/>
+                          <div className="card-body">
+                            <h5 className="card-title">Special title treatment</h5>
+                            <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                          </div>
                         </div>
-                        <br />
+                      </div>
+                      <br />
+                      <div className="container">
+                          <div className="row">
+                                  {this.renderDoodlesList()}
+                          </div>
+                          </div>
                     </div>
-                    <br />
                     <Footer />
                 </div>
             );
         }
-
-    
 }
 
 export default DoodleListUser;

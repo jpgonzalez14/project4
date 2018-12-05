@@ -69,6 +69,10 @@ p {
   font-family: 'Open Sans', sans-serif;
 
 }
+p.card-text{
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
 .hitbox{
   width: 16rem;
   margin-top: 10px;
