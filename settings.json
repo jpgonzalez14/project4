@@ -1,0 +1,8 @@
+{
+  "public": {
+    "analyticsSettings": {
+      "Google Analytics" : {"trackingId": "UA-107948223-2"},
+      "Segment.io"       : {"apiKey": "SpFwLo9O2HDUXHMSIbtqwBQQjRV5gI7Q"}
+    }
+  }
+}
