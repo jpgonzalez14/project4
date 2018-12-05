@@ -86,7 +86,7 @@ class DoodleList extends React.Component {
       Meteor.subscribe('roles', () => {
         const role = roles.find({user: Meteor.userId()}).fetch();
         if (role.length === 1) this.setState({userRole: role[0].role});
-
+       
       });
     });
   }
