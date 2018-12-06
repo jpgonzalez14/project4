@@ -22,8 +22,9 @@ class DoodleFormEdit extends React.Component {
     let parrafo = this.refs.parrafo.value.trim();
     let title = this.refs.title.value.trim();
     let date = this.refs.date.value.trim();
+    let img = this.doodle.img;
     if (parrafo && title && date) {
-      Meteor.call('doodles.update', this.doodle.id, title, parrafo, date, (err, res) => {
+      Meteor.call('doodles.update', this.doodle.id, title, parrafo, date, img, (err, res) => {
         if (err) {
           this.setState({ success: 'Hubo un error. No se pudo editar el hito :(' });
         }
