@@ -1,3 +1,5 @@
+/*Los tests están vacíos*/
+/*En realidad este componente sobra*/
 import React from 'react';
 import { Link } from 'react-router-dom';
 
