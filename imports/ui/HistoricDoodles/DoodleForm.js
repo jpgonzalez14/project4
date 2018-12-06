@@ -23,7 +23,7 @@ class DoodleForm extends React.Component {
     });
   }
 
-
+/*Debería hacer verificaciones sobre las cosas que se suben en el form*/
   onSubmit(e) {
     e.preventDefault();
     let parrafo = this.refs.parrafo.value.trim();
