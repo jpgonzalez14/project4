@@ -108,7 +108,7 @@ class DoodleList extends React.Component {
     const currentDoodles = doodleUniandes.slice(indexOfFirstDoodle, indexOfLastDoodle);
     if (doodleUniandes.length>0) {
       return currentDoodles.map((doodle) => {
-        return <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo}
+        return <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo} img={doodle.img}
           editable={this.state.userRole === 'Admin'} />
       });
     } else {
@@ -130,7 +130,7 @@ class DoodleList extends React.Component {
     const currentDoodlesComunidad = doodleComunidad.slice(indexOfFirstDoodleComunidad, indexOfLastDoodleComunidad);
     if (doodleComunidad.length>0) {
       return currentDoodlesComunidad.map((doodle) => {
-        return <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo}
+        return <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo} img={doodle.img}
           editable={this.state.userRole === 'Admin'} />
       });
     } else {

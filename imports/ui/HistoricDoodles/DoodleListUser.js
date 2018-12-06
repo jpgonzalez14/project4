@@ -40,7 +40,7 @@ class DoodleListUser extends React.Component {
       if (this.state.doodle.length>0) {
         return this.state.doodle.map((doodle) => {
             return (
-                <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo}
+                <DoodleBox key={doodle._id} id={doodle._id} parrafo={doodle.parrafo} title={doodle.title} date={doodle.date} type={doodle.tipo} img={doodle.img}
                     editable={this.state.editable} />
             )
         });

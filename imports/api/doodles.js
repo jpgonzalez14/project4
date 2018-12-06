@@ -11,7 +11,7 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  'doodles.insert'(title, parrafo, date, tipo) {
+  'doodles.insert'(title, parrafo, date, tipo, img) {
     if (!this.userId) {
       throw new Meteor.Error('not-authorized');
     }
@@ -32,8 +32,11 @@ Meteor.methods({
         },
         tipo: {
           type: String
+        },
+        img: {
+          type: String
         }
-      }).validate({ owner: this.userId, title, parrafo, date, tipo });
+      }).validate({ owner: this.userId, title, parrafo, date, tipo, img });
     } catch (e) {
       throw new Meteor.Error(400, e.message);
     }
@@ -43,10 +46,11 @@ Meteor.methods({
       parrafo,
       date,
       tipo,
+      img,
       userId: this.userId
     });
   },
-  'doodles.update'(doodleId, title, parrafo, date) {
+  'doodles.update'(doodleId, title, parrafo, date, img) {
     if (!this.userId) {
       throw new Meteor.Error('not-authorized');
     }
@@ -61,8 +65,11 @@ Meteor.methods({
         },
         date: {
           type: String
+        },
+        img: {
+          type: String
         }
-      }).validate({ title, parrafo, date });
+      }).validate({ title, parrafo, date, img });
     } catch (e) {
       throw new Meteor.Error(400, e.message);
     }
@@ -72,6 +79,7 @@ Meteor.methods({
         title,
         parrafo,
         date,
+        img,
       }
     });
   },

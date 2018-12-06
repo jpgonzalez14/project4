@@ -30,7 +30,7 @@ class Doodle extends React.Component{
             <div className="col-sm-12 col-lg-4">
               <br/>
               <br/>
-              <img className="card-img-top" src="http://placehold.it/400x300" alt="Card image cap" />
+              <img className="card-img-top" src={this.props.location.state.value.img} alt="Card image cap" />
               <br/>
             </div>
             <div className="col-sm-12 col-lg-8">

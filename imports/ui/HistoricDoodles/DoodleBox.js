@@ -35,7 +35,7 @@ class DoodleBox extends React.Component {
   render() {
     return (
       <div className="card hitbox">
-        <Link to={{ pathname: '/doodle', state: { value: this.props } }}><img className="card-img-top" src="http://placehold.it/400x300" alt="Card image cap" /></Link>
+        <Link to={{ pathname: '/doodle', state: { value: this.props } }}><img className="card-img-top" src={this.props.img} alt="Card image cap" /></Link>
         <div className="card-body">
           <small className="card-subtitle mb-2 text-muted">
           Hito <span className={this.props.type === "Uniandes" ? "badge badge-warning" : "badge morado"}>
