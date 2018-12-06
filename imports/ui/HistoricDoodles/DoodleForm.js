@@ -81,6 +81,8 @@ class DoodleForm extends React.Component {
               <label className="rostext">Contenido</label>
               <textarea className="form-control" rows="5" ref="parrafo" required></textarea>
             </div>
+            <input type="file" accept="image/gif, image/jpeg, image/png" className="btn btn-primary btn-lg float-left coll" multiple>Subir imagenes</input>
+            {' '}
             <button type="submit" className="btn btn-primary btn-lg float-right coll">Crear</button>
           </form>
         </div>
