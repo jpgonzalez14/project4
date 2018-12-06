@@ -20,6 +20,8 @@ class Login extends React.Component{
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
     document.body.style.position = "relative";
+    /*Está chévere esta manera de sacar las imágenes pero afecta bastante el rendimiento, las imagenes tardan 
+    en cargar y eso es incómodo*/
   }
   onSubmit(e){
     e.preventDefault();
