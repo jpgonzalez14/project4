@@ -30,6 +30,7 @@ class DoodleListUser extends React.Component {
             Meteor.subscribe('doodles');
             const doodle = doodles.find({ userId: Meteor.userId() }).fetch();
             console.log(doodle);
+            /*Quitar los logs que imprimen en consola*/
             this.setState({ doodle });
         });
     }
