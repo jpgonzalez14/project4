@@ -6,6 +6,7 @@ export const doodles = new Mongo.Collection('doodles');
 
 if (Meteor.isServer) {
   Meteor.publish('doodles', () => {
+    // Doodles should be sorted by the date in which they ocurred for an easier way of seeing them
     return doodles.find();
   });
 }

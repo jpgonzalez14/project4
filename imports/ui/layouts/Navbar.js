@@ -1,3 +1,6 @@
+// Navbar component should be used only once on the App.js component but it looks that you do not have that component
+// Implementing that component may help you to reduce the replication of code
+
 import { Meteor } from 'meteor/meteor';
 
 import React from 'react';
