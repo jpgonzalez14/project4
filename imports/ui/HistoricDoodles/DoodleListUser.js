@@ -29,7 +29,8 @@ class DoodleListUser extends React.Component {
         this.doodlesTracker = Tracker.autorun(() => {
             Meteor.subscribe('doodles');
             const doodle = doodles.find({ userId: Meteor.userId() }).fetch();
-            console.log(doodle);
+           
+            //Zulma Castañeda: No se dejen logs por ahi !
             this.setState({ doodle });
         });
     }
